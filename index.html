@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Hohimer Wealth Management</title>
+    
+    <!-- Chatbot Popup Integration -->
+    <script>window.danteEmbed = "https://dante-ai.com/embed/?kb_id=750af475-1242-425e-89c6-ab4ce4460299&token=9bb3e01f-7866-461c-8825-6c41dbe43ec4&modeltype=gpt-4-omnimodel-128k&mode=undefined&logo=dHJ1ZQ%3D%3D&bubble=true&bubbleopen=false"</script>
+    <script src="https://dante-ai.com/bubble-embed.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            padding-top: 80px;
+        }
+        
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand img {
+            max-height: 50px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+            font-weight: 500;
+            margin-left: 15px;
+        }
+        
+        /* Video hero section */
+        .video-link-card {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-link-card video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .video-link-card-title {
+            position: relative;
+            color: white;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .invest_today {
+            max-width: 300px;
+        }
+        
+        /* What's new section */
+        .whats-new {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .whats-new-text p {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+        
+        .whats-new-link a {
+            color: #996515; /* Gold color */
+            text-decoration: none;
+        }
+        
+        /* Call to action */
+        .call-to-action {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .call-to-action-text p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Rainier background section */
+        .rainier-background {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .rainier-text {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin: 50px 0;
+        }
+        
+        /* Buttons */
+        .btn-gold {
+            background-color: #996515;
+            color: white;
+            padding: 15px 30px;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: #996515;
+            border: 2px solid #996515;
+            padding: 15px 30px;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .btn-gold:hover, .btn-white:hover {
+            opacity: 0.9;
+            color: white;
+        }
+        
+        /* Legal disclaimer */
+        .legal-disclaimer-area {
+            padding: 40px 0;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        /* Footer */
+        .page-footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            font-size: 0.8rem;
+        }
+        
+        .page-footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Chatbot notification banner */
+        .chat-notification {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background-color: #996515;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 320px;
+            animation: slideIn 0.5s forwards, pulse 2s infinite, fadeOut 0.5s 15s forwards;
+        }
+        
+        .chat-notification-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .chat-icon {
+            background-color: white;
+            color: #996515;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .chat-message h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .chat-message p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+        
+        .close-notification {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* Custom styles to enhance the chatbot bubble (will apply to the injected elements) */
+        /* Note: Some of these may be overridden by the chatbot's built-in styles */
+        .dante-bubble {
+            width: 70px !important;
+            height: 70px !important;
+            background-color: #996515 !important;
+            border: 3px solid white !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Animation keyframes */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+        
+        /* Chatbot promotion section */
+        .chatbot-promo {
+            background-color: #f9f7f2;
+            padding: 40px 0;
+            margin: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .chatbot-promo-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .chatbot-promo-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+        
+        .chatbot-promo-text h3 {
+            color: #996515;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .chatbot-demo-button {
+            display: inline-block;
+            background-color: #996515;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .chatbot-demo-button:hover {
+            background-color: #7a5210;
+            color: white;
+        }
+        
+        .chatbot-promo-image {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .chatbot-promo-image img {
+            max-width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="https://hohimerwealthmanagement.com/storage/hhwm-logo.png" alt="Hohimer Wealth Management Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hhwmNavBar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="hhwmNavBar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownServices" data-bs-toggle="dropdown">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownOurProcess" data-bs-toggle="dropdown">Our Process</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownOurStory" data-bs-toggle="dropdown">Our Story</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownTeam" data-bs-toggle="dropdown">Our Team</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMedia" data-bs-toggle="dropdown">Media</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownContactUs" data-bs-toggle="dropdown">Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownAccount" data-bs-toggle="dropdown">Account Logins</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Video Hero Section -->
+        <div class="video-link-card">
+            <div class="overlay"></div>
+            <video playsinline autoplay muted loop id="videoBackgroundHome">
+                <source src="https://hwm-cdn.nyc3.cdn.digitaloceanspaces.com/videos/cepebjriakynz5ck99mx.mp4" type="video/mp4">
+            </video>
+            <div class="container h-100">
+                <div class="d-flex h-100 align-items-center justify-content-center">
+                    <div class="text-center">
+                        <p class="display-4 video-link-card-title">
+                            <img src="https://ik.imagekit.io/illuminationfoundry/hohimer-wealth-management/invest-today_t-Bzvbx6Q.png" class="invest_today">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What's New Section -->
+        <div class="whats-new">
+            <div class="container">
+                <div class="whats-new-text">
+                    <p>What's New at HWM</p>
+                </div>
+                <div class="whats-new-link">
+                    <p><a href="#">Listen into the latest Worth Knowing More with Microsoft's Larry Jordan</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action 1 -->
+        <div class="call-to-action">
+            <div class="container">
+                <div class="call-to-action-text text-center">
+                    <p>Everything starts with you: your priorities, your goals, and the things that you value most.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Promotion Section -->
+        <section class="chatbot-promo">
+            <div class="container">
+                <div class="chatbot-promo-content">
+                    <div class="chatbot-promo-text">
+                        <h3>Get Immediate Answers with Our Financial Assistant</h3>
+                        <p>Have questions about our wealth management services? Need information about investment strategies? Our AI-powered assistant is here to help 24/7.</p>
+                        <p>Click the chat icon in the bottom right corner to start a conversation.</p>
+                        <a href="#" class="chatbot-demo-button" onclick="openChatbot(); return false;">
+                            <i class="fas fa-comment-dots"></i> Try Our Assistant
+                        </a>
+                    </div>
+                    <div class="chatbot-promo-image">
+                        <img src="/api/placeholder/400/320" alt="Financial Assistant Chat Interface">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rainier Background Section -->
+        <div class="rainier-background" style="background-image: url(https://hohimerwealthmanagement.com/storage/mount-rainier-lit-up-pink-at-dusk-with-port-of-seattle-cranes-on-elliott-bay-rltheis_t20_xRNX0l.jpg)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="rainier-text">
+                            <p>From the moment you reach out to us, we're taking notes. Your goals, dreams, and concerns are the foundation of our partnership. This is the start of our journey. You are the priority.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 offset-md-6">
+                        <div class="rainier-text">
+                            <p>Our high-touch approach to wealth management involves continuous monitoring and open communication. We will touch base with you regularly to ensure that our plan continues to grow in-line with your goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action 2 -->
+        <div class="call-to-action">
+            <div class="container">
+                <div class="call-to-action-text text-center">
+                    <p>We're ready to help you invest today in tomorrow's dreams.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <a href="#" class="btn-gold">Wealth Management</a>
+                </div>
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <a href="#" class="btn-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Disclaimer -->
+        <div class="container">
+            <div class="legal-disclaimer-area">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="disclaimer">
+                            <p>Investment advisory services are offered through Hohimer Wealth Management, LLC, an investment advisor registered with the U.S. Securities and Exchange Commission. Hohimer Wealth Management only offers investment advisory services after clients have entered into an investment advisory agreement confirming the terms of engagement and have been provided a copy of the firm's Form ADV documents.</p>
+                            <p>Registration as an investment advisor does not imply any level of skill or training.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="disclaimer">
+                            <p>This website is for informational purposes only and does not constitute a complete description of our investment advisory services. Any market or financial data presented throughout this site is provided for information purposes only and does not constitute a recommendation to buy or sell any specific security. Any such information has been obtained from sources believed to be reliable but is not guaranteed. Nothing on this website should be interpreted to state or imply that past results are any indication of future performance. THERE ARE NO WARRANTIES, EXPRESSED OR IMPLIED, AS TO ACCURACY, COMPLETENESS, OR RESULTS OBTAINED FROM ANY INFORMATION POSTED ON THIS OR ANY 'LINKED' WEBSITE.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="page-footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span>Hohimer Wealth Management © 2023. All rights reserved.</span>
+                </div>
+                <div class="col-md-4">
+                    <span>
+                        <a href="#">ADV</a> | <a href="#">CRS</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
+                    </span>
+                </div>
+                <div class="col-md-4">
+                    <span>Crafted by <a href="https://www.somedevelopment.com/">Some Development LLC</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Notification Banner -->
+    <div class="chat-notification" id="chatNotification">
+        <button class="close-notification" onclick="closeNotification()">×</button>
+        <div class="chat-notification-content">
+            <div class="chat-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chat-message">
+                <h4>Financial Assistant</h4>
+                <p>Have questions? I'm here to help! Click here to chat with me.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Function to close the notification
+        function closeNotification() {
+            document.getElementById('chatNotification').style.display = 'none';
+        }
+        
+        // Function to open the chatbot
+        function openChatbot() {
+            // This function attempts to click the bubble icon injected by the chatbot script
+            const chatButtons = document.querySelectorAll('.dante-bubble');
+            if (chatButtons.length > 0) {
+                chatButtons[0].click();
+            }
+            
+            // Close the notification after opening the chatbot
+            closeNotification();
+        }
+        
+        // Make the notification clickable to open the chatbot
+        document.getElementById('chatNotification').addEventListener('click', function(e) {
+            if (e.target.className !== 'close-notification') {
+                openChatbot();
+            }
+        });
+        
+        // After 15 seconds, remove the notification to avoid cluttering the UI
+        setTimeout(function() {
+            closeNotification();
+        }, 15000);
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
